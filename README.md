@@ -13,6 +13,7 @@ Currently, two official plugins are available:
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
+
  It's a simple city explorer application built using React, the application allows users to search for a city and retrieve its location information.
 
 ## Getting Started
@@ -24,8 +25,9 @@ Currently, two official plugins are available:
 - You need to obtain an access token from LocationIQ API. You can sign up for a free account on their website to get the access token.
 
 ## Architecture
+
 - The application is built using React, which provides a component-based architecture for building interactive user interfaces.
--  The primary language used for writing the application logic, including state management, API integration, and event handling.
+- The primary language used for writing the application logic, including state management, API integration, and event handling.
 - Bootstrap is used for styling the application. It provides pre-designed CSS components and utilities for creating responsive and visually appealing layouts.
 - The application integrates with the LocationIQ API to fetch location information based on the city entered by the user.
 
@@ -35,4 +37,14 @@ Currently, two official plugins are available:
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
+
 Michael Roark, Jed Staley, Brandon, & Wajiha. Also, some chat gpt.
+
+Name of feature: city explorer
+Estimate of time needed to complete: 3 hours
+
+Start time: 2 pm CT
+
+Finish time: 5:25 pm CT
+
+Actual time needed to complete: 3 hours 30 minutes
