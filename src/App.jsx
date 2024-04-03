@@ -2,11 +2,13 @@ import { useState } from 'react'
 import SearchForm from './assets/SearchForm';
 import LocationInfo from './assets/LocationInfo';
 import ErrorMessage from './assets/ErrorMessage';
+import Weather from './Weather';
 
 function App() {
   const [city, setCity] = useState('');
   const [location, setLocation] = useState({});
   const [error, setError] = useState('');
+  const [weatherData, setWeatherData] = useState([]);
 
   const accessToken = import.meta.env.VITE_LOCATION_ACCESS_TOKEN;
   console.log(accessToken);
@@ -25,14 +27,30 @@ function App() {
       if (jsonData.error) {
         setError("Check the spelling!");
         setLocation({});
+        setWeatherData([]);
       } else {
         let locationData = jsonData[0];
         setLocation(locationData);
         setError('');
+        
+
+        if (locationData.lat && locationData.lon) {
+          // try {
+            let weatherResponse = await fetch (`http://localhost:3000/weather?lat=${locationData.lat}&lon=${locationData.lon}&searchQuery=${city}`);
+            console.log(weatherResponse)
+            let weatherData = await weatherResponse.json();
+            console.log("Weather Data:", weatherData);
+          // }
+          // catch (error) {
+          //   console.error("Error fetching weather data:", error);
+          //   setError("Error fetching weather data");
+          // }
+        }
       }
     } catch(error) {
       console.error("Error getting location information", error);
       setError("Error getting location information");
+      setWeatherData([]);
     }
   }
 
@@ -43,6 +61,7 @@ function App() {
         <SearchForm setCity={setCity} getLocation={getLocation} />
         {error && <ErrorMessage message={error} />}
         {location.display_name && <LocationInfo location={location} accessToken={accessToken} />}
+        {weatherData.length > 0 && <Weather forecasts={weatherData}/>}
       </div>
     </div>
   </div>
