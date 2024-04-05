@@ -9,6 +9,7 @@ function Movie({ movie }) {
         <Card.Text>Title: {movie.title}</Card.Text>
         <Card.Text>Release Date: {movie.releaseDate}</Card.Text>
         <Card.Text>Overview: {movie.overview}</Card.Text>
+        <Card.Img src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}/>
       </Card.Body>
     </Card>
   );
