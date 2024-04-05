@@ -35,11 +35,11 @@ function App() {
 
       if (locationData.lat && locationData.lon) {
         try {
-          let weatherResponse = await fetch(`http://localhost:3000/weather?lat=${locationData.lat}&lon=${locationData.lon}`);
+          let weatherResponse = await fetch(`https://city-explorer-api-hep3.onrender.com/weather?lat=${locationData.lat}&lon=${locationData.lon}`);
           let weatherData = await weatherResponse.json();
           setWeatherData(weatherData);
 
-          const movieResponse = await fetch(`http://localhost:3000/movies?city=${city}`);
+          const movieResponse = await fetch(`https://city-explorer-api-hep3.onrender.com/movies?city=${city}`);
           const movieData = await movieResponse.json();
           setMovieData(movieData);
         }
